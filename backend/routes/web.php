@@ -19,7 +19,4 @@ Route::get('/', function () {
 });
 
 
-Route::controller(TaskController::class)->group(function () {
-    Route::get('/task', 'showTask')->name('task.showTask');
-    Route::get('/task/list', 'showTasksList')->name('task.showTasksList');
-});
+Route::resource('tasks', TaskController::class);

@@ -15,13 +15,13 @@ class TaskController extends Controller
         $this->taskService = new TaskService();
     }
 
-    public function showTask()
+    public function show($id)
     {
-        $task = $this->taskService->getTask(3);
+        $task = $this->taskService->getTask($id);
         dd($task);
     }
 
-    public function showTasksList()
+    public function index()
     {
         $tasks = $this->taskService->getTasksList();
         dd($tasks);

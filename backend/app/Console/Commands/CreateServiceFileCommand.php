@@ -70,7 +70,7 @@ class CreateServiceFileCommand extends Command
         }
 
         $this->serviceFileName = self::SERVICES_PATH . $this->dirName . '/' . $this->fileName . 'Service.php';
-        $this->interfaceFileName = self::SERVICES_PATH . $this->dirName . '/' . $this->fileName . 'Interface.php';
+        $this->interfaceFileName = self::SERVICES_PATH . $this->dirName . '/' . $this->fileName . 'ServiceInterface.php';
         if ($this->isExistFiles()) {
             $this->error('already exist');
             return;
@@ -97,7 +97,7 @@ class CreateServiceFileCommand extends Command
      */
     private function createInterFaceFile(): void
     {
-        $content = "<?php\n\nnamespace App\\Services\\$this->dirName;\n\ninterface $this->fileName" . "Interface\n{\n}\n";
+        $content = "<?php\n\nnamespace App\\Services\\$this->dirName;\n\ninterface $this->fileName" . "ServiceInterface\n{\n}\n";
         file_put_contents($this->interfaceFileName, $content);
     }
 

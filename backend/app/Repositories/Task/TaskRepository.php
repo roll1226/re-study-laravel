@@ -2,6 +2,17 @@
 
 namespace App\Repositories\Task;
 
-class TaskRepository implements TaskInterface
+use App\Models\Task;
+
+class TaskRepository implements TaskRepositoryInterface
 {
+    public function getTaskById($id)
+    {
+        return Task::where('id', '=', $id)->get();
+    }
+
+    public function getAllTasks()
+    {
+        return Task::all();
+    }
 }

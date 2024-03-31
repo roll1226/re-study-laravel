@@ -70,7 +70,7 @@ class CreateRepositoryFileCommand extends Command
         }
 
         $this->repositoryFileName = self::REPOSITORIES_PATH . $this->dirName . '/' . $this->fileName . 'Repository.php';
-        $this->interfaceFileName = self::REPOSITORIES_PATH . $this->dirName . '/' . $this->fileName . 'Interface.php';
+        $this->interfaceFileName = self::REPOSITORIES_PATH . $this->dirName . '/' . $this->fileName . 'RepositoryInterface.php';
         if ($this->isExistFiles()) {
             $this->error('already exist');
             return;
@@ -97,7 +97,7 @@ class CreateRepositoryFileCommand extends Command
      */
     private function createInterFaceFile(): void
     {
-        $content = "<?php\n\nnamespace App\\Repositories\\$this->dirName;\n\ninterface $this->fileName" . "Interface\n{\n}\n";
+        $content = "<?php\n\nnamespace App\\Repositories\\$this->dirName;\n\ninterface $this->fileName" . "RepositoryInterface\n{\n}\n";
         file_put_contents($this->interfaceFileName, $content);
     }
 

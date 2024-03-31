@@ -30,8 +30,6 @@ init:
 	docker compose exec app php artisan storage:link
 	docker compose exec app chmod -R 777 storage bootstrap/cache
 	@make fresh
-fresh:
-	docker compose exec app php artisan migrate:fresh --seed
 logs:
 	docker compose logs
 logs-watch:
@@ -48,15 +46,8 @@ log-db:
 	docker compose logs db
 log-db-watch:
 	docker compose logs --follow db
-migrate:
-	docker compose exec app php artisan migrate
-seed:
-	docker compose exec app php artisan db:seed
 dacapo:
 	docker compose exec app php artisan dacapo
-rollback-test:
-	docker compose exec app php artisan migrate:fresh
-	docker compose exec app php artisan migrate:refresh
 tinker:
 	docker compose exec app php artisan tinker
 test:
@@ -119,3 +110,19 @@ create-seeder:
 	docker compose exec app php artisan make:seeder ${name}
 create-model:
 	docker compose exec app php artisan make:model ${name} --migration
+migrate:
+	docker compose exec app php artisan migrate
+migrate-rollback:
+	docker compose exec app php artisan migrate:rollback
+migrate-reset:
+	docker compose exec app php artisan migrate:reset
+migrate-refresh:
+	docker compose exec app php artisan migrate:refresh
+migrate-fresh:
+	docker compose exec app php artisan migrate:fresh
+migrate-status:
+	docker compose exec app php artisan migrate:status
+migrate-fresh-seed:
+	docker compose exec app php artisan migrate:fresh --seed
+seed:
+	docker compose exec app php artisan db:seed

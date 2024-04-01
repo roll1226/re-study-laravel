@@ -8,7 +8,7 @@ class TaskRepository implements TaskRepositoryInterface
 {
     public function getTaskById($id)
     {
-        return Task::where('id', '=', $id)->get();
+        return Task::find($id);
     }
 
     public function getAllTasks()

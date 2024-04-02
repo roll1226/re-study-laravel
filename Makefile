@@ -68,27 +68,29 @@ cache-clear:
 npm:
 	@make npm-install
 npm-install:
-	docker compose exec web npm install
+	docker compose exec app npm install
 npm-dev:
-	docker compose exec web npm run dev
+	docker compose exec app npm run dev
+npm-build:
+	docker compose exec app npm run build
 npm-watch:
-	docker compose exec web npm run watch
+	docker compose exec app npm run watch
 npm-watch-poll:
-	docker compose exec web npm run watch-poll
+	docker compose exec app npm run watch-poll
 npm-hot:
-	docker compose exec web npm run hot
-yarn:
-	docker compose exec web yarn
+	docker compose exec app npm run hot
 yarn-install:
-	@make yarn
+	docker compose exec app yarn
 yarn-dev:
-	docker compose exec web yarn dev
+	docker compose exec app yarn dev
+yarn-build:
+	docker compose exec app yarn build
 yarn-watch:
-	docker compose exec web yarn watch
+	docker compose exec app yarn watch
 yarn-watch-poll:
-	docker compose exec web yarn watch-poll
+	docker compose exec app yarn watch-poll
 yarn-hot:
-	docker compose exec web yarn hot
+	docker compose exec app yarn hot
 ide-helper:
 	docker compose exec app php artisan clear-compiled
 	docker compose exec app php artisan ide-helper:generate

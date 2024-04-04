@@ -5,7 +5,9 @@ const count = ref(0);
 </script>
 
 <template>
-    <div>Count: {{ count }}</div>
-    <button @click="count++">Add Count</button>
-    <button @click="count--">Remove Count</button>
+    <div class="counter">
+        <div>Count: {{ count }}</div>
+        <button @click="count++">Add Count</button>
+        <button @click="count--">Remove Count</button>
+    </div>
 </template>

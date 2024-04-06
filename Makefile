@@ -15,6 +15,8 @@ web:
 	docker compose exec web bash
 db:
 	docker compose exec db bash
+npm:
+	docker compose exec npm bash
 sql:
 	docker compose exec db bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
 destroy:
@@ -65,32 +67,30 @@ cache-clear:
 	docker compose exec app composer clear-cache
 	@make optimize-clear
 	docker compose exec app php artisan event:clear
-npm:
-	@make npm-install
 npm-install:
-	docker compose exec app npm install
+	docker compose exec npm npm install
 npm-dev:
-	docker compose exec app npm run dev
+	docker compose exec npm npm run dev
 npm-build:
-	docker compose exec app npm run build
+	docker compose exec npm npm run build
 npm-watch:
-	docker compose exec app npm run watch
+	docker compose exec npm npm run watch
 npm-watch-poll:
-	docker compose exec app npm run watch-poll
+	docker compose exec npm npm run watch-poll
 npm-hot:
-	docker compose exec app npm run hot
+	docker compose exec npm npm run hot
 yarn-install:
-	docker compose exec app yarn
+	docker compose exec npm yarn
 yarn-dev:
-	docker compose exec app yarn dev
+	docker compose exec npm yarn dev
 yarn-build:
-	docker compose exec app yarn build
+	docker compose exec npm yarn build
 yarn-watch:
-	docker compose exec app yarn watch
+	docker compose exec npm yarn watch
 yarn-watch-poll:
-	docker compose exec app yarn watch-poll
+	docker compose exec npm yarn watch-poll
 yarn-hot:
-	docker compose exec app yarn hot
+	docker compose exec npm yarn hot
 ide-helper:
 	docker compose exec app php artisan clear-compiled
 	docker compose exec app php artisan ide-helper:generate

@@ -1,17 +1,14 @@
-<script lang="ts">
-import { defineComponent, PropType } from "vue";
+<script setup lang="ts">
+// type Todo = {
+//     id: any;
+//     name: any;
+// };
 
-type Todo = [];
-
-export default defineComponent({
-    props: {
-        todo: {
-            // type: Todo,
-        },
-    },
-});
+// const props = defineProps<Todo>();
 </script>
 
 <template>
-    <div></div>
+    <div>
+        <a href=""> hoge </a>
+    </div>
 </template>

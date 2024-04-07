@@ -11,7 +11,18 @@ export default defineConfig({
         },
     },
     plugins: [
-        vue(),
+        vue({
+            template: {
+                compilerOptions: {
+                    isCustomElement: (tag) => {
+                        return tag.startsWith("vue-"); // (return true)
+                    },
+                    compatConfig: {
+                        MODE: 3,
+                    },
+                },
+            },
+        }),
         laravel({
             input: [
                 "resources/css/app.css",
